@@ -24,6 +24,10 @@ class SessionLogin(context: Context) {
         editor.putString(R.string.username.toString(), username)
         editor.apply()
     }
+    fun setPassword(password: String) {
+        editor.putString(R.string.password.toString(), password)
+        editor.apply()
+    }
 
     fun setAccountNo(accountNo: String) {
         editor.putString(R.string.accountNo.toString(), accountNo)
