@@ -17,8 +17,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/menu"
-        app:navigationIcon="@drawable/ocbc_icon"
-        app:titleTextColor="@color/red" />
+        app:titleTextColor="@color/red">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ocbc_icon"
+            android:layout_gravity="center" />
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -193,7 +199,7 @@
         android:id="@+id/btn_makeTransfer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/make_transfer"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"

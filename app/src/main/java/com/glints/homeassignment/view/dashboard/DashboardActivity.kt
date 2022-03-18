@@ -12,6 +12,7 @@ import com.glints.homeassignment.databinding.ActivityDashboardBinding
 import com.glints.homeassignment.helper.SessionLogin
 import com.glints.homeassignment.view.dashboard.adapter.TransactionHistoryAdapter
 import com.glints.homeassignment.view.loginRegister.LoginActivity
+import com.glints.homeassignment.view.transfer.TransferActivity
 import com.glints.homeassignment.viewmodel.DashboardViewmodel
 
 class DashboardActivity : AppCompatActivity() {
@@ -33,6 +34,9 @@ class DashboardActivity : AppCompatActivity() {
         binding.tvWelcome.text = "Hello, ${username.toString()}"
         showUserBalance()
         showTransactionHistory()
+        binding.btnMakeTransfer.setOnClickListener {
+            startActivity(Intent(this, TransferActivity::class.java))
+        }
     }
 
     private fun showTransactionHistory() {
