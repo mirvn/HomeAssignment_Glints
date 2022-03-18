@@ -8,7 +8,7 @@
     <string name="exit_message">Are you sure want to exit?</string>
     <string name="exit_tittle">Exit Application</string>
     <string name="exit">Exit</string>
-    <string name="cancel">cancel</string>
+    <string name="cancel">Cancel</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="username_err_warning">username is required</string>
     <string name="pw_err_warning">Password is required</string>
@@ -22,7 +22,7 @@
     <string name="account_created_message">Registration has been successful, you can login with the account you created</string>
     <string name="account_created_fail_message">Registration failed, you can try again later</string>
     <string name="failed">failed</string>
-    <string name="ok">ok</string>
+    <string name="ok">OK</string>
     <string name="session_encrypted">session_encrypted</string>
     <string name="accountNo">accountNo</string>
     <string name="token">token</string>
@@ -31,4 +31,13 @@
     <string name="logout">Logout</string>
     <string name="you_have">You Have</string>
     <string name="account_no_dashboard">Account No</string>
+    <string name="received">received</string>
+    <string name="receipient">receipient</string>
+    <string name="jwt_expired">jwt expired</string>
+    <string name="session_expired">Session Expired</string>
+    <string name="sessionExpired_message">Your login session has expired, please login using your account again</string>
+    <string name="account_holder">Account Holder</string>
+    <string name="your_transaction_history">Your Transaction History</string>
+    <string name="make_transfer">Make Transfer</string>
+    <string name="you_don_t_have_a_transaction_history">You don\'t have a transaction history.</string>
 </resources>

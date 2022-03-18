@@ -84,7 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Account Holder"
+            android:text="@string/account_holder"
             app:layout_constraintStart_toStartOf="@+id/tv_accNoDashboard"
             app:layout_constraintTop_toBottomOf="@+id/tv_accNoDashboard" />
 
@@ -148,6 +148,7 @@
             app:layout_constraintEnd_toEndOf="@+id/tv_balance"
             app:layout_constraintStart_toStartOf="@+id/tv_balance"
             app:layout_constraintTop_toTopOf="@+id/tv_nameHolder" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
@@ -168,7 +169,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Your Transaction History"
+        android:text="@string/your_transaction_history"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -193,9 +194,35 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="Make Transfer"
+        android:text="@string/make_transfer"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/recyclerView"
         app:layout_constraintStart_toStartOf="@+id/recyclerView" />
+
+    <ProgressBar
+        android:id="@+id/progressBar8"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/red"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="@+id/recyclerView"
+        app:layout_constraintStart_toStartOf="@+id/recyclerView"
+        app:layout_constraintTop_toTopOf="@+id/recyclerView" />
+
+    <TextView
+        android:id="@+id/tv_dataEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:text="@string/you_don_t_have_a_transaction_history"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/recyclerView"
+        app:layout_constraintTop_toTopOf="@+id/recyclerView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
