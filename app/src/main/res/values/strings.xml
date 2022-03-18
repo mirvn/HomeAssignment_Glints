@@ -23,4 +23,12 @@
     <string name="account_created_fail_message">Registration failed, you can try again later</string>
     <string name="failed">failed</string>
     <string name="ok">ok</string>
+    <string name="session_encrypted">session_encrypted</string>
+    <string name="accountNo">accountNo</string>
+    <string name="token">token</string>
+    <string name="password_required">Password is required</string>
+    <string name="username_required">Username is required</string>
+    <string name="logout">Logout</string>
+    <string name="you_have">You Have</string>
+    <string name="account_no_dashboard">Account No</string>
 </resources>
