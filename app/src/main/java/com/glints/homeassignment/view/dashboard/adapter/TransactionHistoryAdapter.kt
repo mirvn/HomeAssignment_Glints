@@ -43,8 +43,11 @@ class TransactionHistoryAdapter : RecyclerView.Adapter<TransactionHistoryAdapter
             if (historyTransaction.transactionType == itemView.context.getString(R.string.received)) {
                 binding.tvAmountHistory.setTextColor(Color.GREEN)
                 binding.tvAmountHistory.text = "+${historyTransaction.amount}"
+            } else {
+                binding.tvAmountHistory.setTextColor(Color.RED)
+                binding.tvAmountHistory.text = "-${historyTransaction.amount}"
             }
-            binding.tvAmountHistory.text = historyTransaction.amount.toString()
+            /*binding.tvAmountHistory.text = historyTransaction.amount.toString()*/
         }
     }
 
