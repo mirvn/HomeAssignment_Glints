@@ -16,7 +16,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        
+
         registerViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
             .get(RegisterViewModel::class.java) //initialize viewmodel class
         binding.toolbar2.setNavigationOnClickListener {
