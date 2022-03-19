@@ -13,7 +13,9 @@
         <entry key="..\:/Direktori/Work/Glints/Assignment/app/src/main/res/layout/activity_register.xml" value="0.33" />
         <entry key="..\:/Direktori/Work/Glints/Assignment/app/src/main/res/layout/activity_transfer.xml" value="0.22" />
         <entry key="..\:/Direktori/Work/Glints/Assignment/app/src/main/res/layout/item_list_history.xml" value="0.33" />
-        <entry key="..\:/Direktori/Work/Glints/Assignment/app/src/main/res/layout/layout_loading.xml" value="0.2" />
+        <entry key="..\:/Direktori/Work/Glints/Assignment/app/src/main/res/layout/layout_loading.xml" value="0.5" />
+        <entry key="..\:/Direktori/Work/Glints/Assignment/app/src/main/res/layout/layout_make_transfer.xml" value="0.18" />
+        <entry key="..\:/Direktori/Work/Glints/Assignment/app/src/main/res/layout/layout_transfer_success.xml" value="0.25" />
         <entry key="..\:/Direktori/Work/Glints/Assignment/app/src/main/res/layout/splashscreen_activity.xml" value="0.25" />
         <entry key="..\:/Direktori/Work/Glints/Assignment/app/src/main/res/menu/menu.xml" value="0.1875" />
       </map>

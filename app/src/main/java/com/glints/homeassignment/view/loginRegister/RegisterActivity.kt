@@ -1,9 +1,8 @@
 package com.glints.homeassignment.view.loginRegister
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.glints.homeassignment.R
 import com.glints.homeassignment.databinding.ActivityRegisterBinding
@@ -45,7 +44,7 @@ class RegisterActivity : AppCompatActivity() {
                     val alert = AlertDialog.Builder(this)
                     alert.apply {
                         setTitle(getString(R.string.confirmation_register))
-                        setMessage(getString(R.string.confirmation_register_message))
+                        setMessage(getString(R.string.confirmation_data_message))
                         setCancelable(false)
                         setNegativeButton(getString(R.string.cancel)){_,_->}
                         setPositiveButton(getString(R.string.register)){_,_->

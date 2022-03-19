@@ -58,7 +58,7 @@
         app:startIconTint="@color/red">
 
         <AutoCompleteTextView
-            android:id="@+id/edt_payee"
+            android:id="@+id/act_payee"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHint="#757575" />
@@ -85,7 +85,7 @@
             android:id="@+id/edt_amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
+            android:inputType="number"
             android:textColorHint="#757575" />
     </com.google.android.material.textfield.TextInputLayout>
 

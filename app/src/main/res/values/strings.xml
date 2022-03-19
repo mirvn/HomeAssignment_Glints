@@ -15,7 +15,7 @@
     <string name="confirmPw_err_warning">Please confirm your password</string>
     <string name="pw_not_match">Password doesn\'t match</string>
     <string name="confirmation_register">Registration</string>
-    <string name="confirmation_register_message">Are you sure your data is correct?</string>
+    <string name="confirmation_data_message">Are you sure your data is correct?</string>
     <string name="loading">Loading</string>
     <string name="Registration_Success">Registration Success</string>
     <string name="Registration_Failed">Registration Failed</string>
@@ -42,9 +42,20 @@
     <string name="you_don_t_have_a_transaction_history">You don\'t have a transaction history.</string>
     <string name="transfer">Transfer</string>
     <string name="payee">Payee</string>
-    <string name="amount">Amount</string>
+    <string name="amount">Amount in $SGD</string>
     <string name="description">Description</string>
     <string name="transfer_now">Transfer Now</string>
     <string name="please_fill_form_below_to_start_transfer">Please fill form below to start transfer</string>
     <string name="please_fill_form_below_to_start_register_account">Please fill form below to start register account</string>
+    <string name="payee_required">Payee Required</string>
+    <string name="amount_required">Amount Required</string>
+    <string name="description_required">Please fill description</string>
+    <string name="transfer_confirmation">Transfer Confirmation</string>
+    <string name="transferring_funds">Transferring Funds</string>
+    <string name="transfer_failed">Transfer Failed</string>
+    <string name="receipent_account">Receipent Account :</string>
+    <string name="description_transaction">Description :</string>
+    <string name="amount_transaction">Amount :</string>
+    <string name="transaction_id">Transaction ID :</string>
+    <string name="transfer_status">Transfer Status :</string>
 </resources>
