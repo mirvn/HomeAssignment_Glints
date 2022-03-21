@@ -103,7 +103,8 @@ Library used in project:
 
 This application contain liveData and viewModel implementation from Jetpack Library using this dependency:
 ```implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'```
-```implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1''```
+
+```implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'```
 
 Using LiveData to get advantage of lifecycle-aware, meaning it respects the lifecycle of other app components, such as activities, fragments, or services. This awareness ensures LiveData only updates app component observers that are in an active lifecycle state.
 Here is some example:
