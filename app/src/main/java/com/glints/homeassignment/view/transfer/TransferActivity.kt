@@ -40,6 +40,9 @@ class TransferActivity : AppCompatActivity() {
         binding.btnTransferNow.setOnClickListener {
             beginTransfer()
         }
+        binding.toolbar4.setNavigationOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun beginTransfer() {
@@ -109,13 +112,13 @@ class TransferActivity : AppCompatActivity() {
                 tDesc.text = dataTransfer.description
                 tReceipent.text = dataTransfer.recipientAccount
                 tStatus.text = dataTransfer.status
-                val alert = alertSuccess.apply {
+                val alertCreated = alertSuccess.apply {
                     setView(v)
                     setCancelable(false)
                 }.create()
-                alert.show()
+                alertCreated.show()
                 btnOk.setOnClickListener {
-                    alert.cancel()
+                    alertCreated.cancel()
                     binding.actPayee.text.clear()
                     binding.edtDescription.text?.clear()
                     binding.edtAmount.text?.clear()
@@ -126,7 +129,7 @@ class TransferActivity : AppCompatActivity() {
     }
 
     private fun loadListPayees() {
-        transferViewModel.setDataPayees(token, this)
+        transferViewModel.setDataPayees(token)
         transferViewModel.getDataPayees().observe({ lifecycle }, { listPayees ->
             dataPayees = listPayees
             payees = ArrayList()

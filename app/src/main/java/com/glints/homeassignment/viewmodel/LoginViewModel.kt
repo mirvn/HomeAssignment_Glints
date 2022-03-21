@@ -1,6 +1,5 @@
 package com.glints.homeassignment.viewmodel
 
-import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -13,22 +12,22 @@ import com.loopj.android.http.RequestParams
 import cz.msebera.android.httpclient.Header
 import org.json.JSONObject
 
-class LoginViewModel:ViewModel() {
+class LoginViewModel : ViewModel() {
     private val TAG = LoginViewModel::class.java.simpleName
-    private val userLiveData= MutableLiveData<User>()
+    private val userLiveData = MutableLiveData<User>()
     private lateinit var errorMsg: String
+    private lateinit var client: AsyncHttpClient
+    private var url = "${BuildConfig.URL_API}/login"
 
     fun setLogin(
         username: String,
         password: String,
-        context: Context
     ) {
-        val url = "${BuildConfig.URL_API}/login"
         val params = RequestParams()
         params.put("username", username)
         params.put("password", password)
 
-        val client = AsyncHttpClient()
+        client = AsyncHttpClient()
         client.setURLEncodingEnabled(true)
 
         client.post(url, params, object : AsyncHttpResponseHandler() {
@@ -80,4 +79,8 @@ class LoginViewModel:ViewModel() {
     }
 
     fun getUserLogin(): LiveData<User> = userLiveData
+
+    fun setDataDummy(user: User) {
+        userLiveData.postValue(user)
+    }
 }

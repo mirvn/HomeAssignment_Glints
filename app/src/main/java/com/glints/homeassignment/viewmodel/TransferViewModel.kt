@@ -20,7 +20,7 @@ class TransferViewModel : ViewModel() {
     private val transferLiveData = MutableLiveData<Transfer>()
     private lateinit var errorMsg: String
 
-    fun setDataPayees(token: String, context: Context) {
+    fun setDataPayees(token: String) {
         val payeesObject = ArrayList<Payees>()
 
         val url = "${BuildConfig.URL_API}/payees"
@@ -39,13 +39,13 @@ class TransferViewModel : ViewModel() {
                 val jsonArray = jsonObject.getJSONArray("data")
                 for (i in 0 until jsonArray.length()) {
                     val jsonObjectData = jsonArray.getJSONObject(i)
-                    val pembimbing = Payees()
+                    val payee = Payees()
 
-                    pembimbing.id = jsonObjectData.getString("id")
-                    pembimbing.name = jsonObjectData.getString("name")
-                    pembimbing.accountNo = jsonObjectData.getString("accountNo")
+                    payee.id = jsonObjectData.getString("id")
+                    payee.name = jsonObjectData.getString("name")
+                    payee.accountNo = jsonObjectData.getString("accountNo")
 
-                    payeesObject.add(pembimbing)
+                    payeesObject.add(payee)
                 }
                 payeesLiveData.postValue(payeesObject)
             }
@@ -97,14 +97,14 @@ class TransferViewModel : ViewModel() {
                 responseBody: ByteArray?
             ) {
                 val result = responseBody?.let { String(it) }
-                val jsonObject = JSONObject(result.toString())
+                val jsonData = JSONObject(result.toString())
                 val transfer = Transfer()
 
-                transfer.status = jsonObject.optString("status")
-                transfer.amount = jsonObject.optInt("amount")
-                transfer.description = jsonObject.optString("description")
-                transfer.transactionId = jsonObject.optString("transactionId")
-                transfer.recipientAccount = jsonObject.optString("recipientAccount")
+                transfer.status = jsonData.optString("status")
+                transfer.amount = jsonData.optInt("amount")
+                transfer.description = jsonData.optString("description")
+                transfer.transactionId = jsonData.optString("transactionId")
+                transfer.recipientAccount = jsonData.optString("recipientAccount")
 
                 transferLiveData.postValue(transfer)
                 Log.d(TAG, "onSuccess: $transfer")
@@ -124,17 +124,25 @@ class TransferViewModel : ViewModel() {
                 }
 
                 val result = responseBody?.let { String(it) }
-                val jsonObject = JSONObject(result.toString())
+                val jsonObjectData = JSONObject(result.toString())
                 val transfer = Transfer()
 
-                transfer.status = jsonObject.optString("status")
-                transfer.error = jsonObject.optString("error")
+                transfer.status = jsonObjectData.optString("status")
+                transfer.error = jsonObjectData.optString("error")
 
-                Log.d(TAG, "onFailure-error: ${jsonObject.optString("error")}")
+                Log.d(TAG, "onFailure-error: ${jsonObjectData.optString("error")}")
                 transferLiveData.postValue(transfer)
             }
         })
     }
 
     fun getTransferData(): LiveData<Transfer> = transferLiveData
+
+    fun setDummyPayees(payees: ArrayList<Payees>) {
+        payeesLiveData.postValue(payees)
+    }
+
+    fun setDummyTransfer(transfer: Transfer) {
+        transferLiveData.postValue(transfer)
+    }
 }

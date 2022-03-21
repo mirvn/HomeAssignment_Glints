@@ -12,4 +12,4 @@ data class TransactionHistory(
     var transactionType: String = "",
     var accountNo: String = "",
     var accountHolder: String = "",
-) : Parcelable {}
+) : Parcelable

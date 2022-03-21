@@ -1,18 +1,16 @@
 package com.glints.homeassignment.view.loginRegister
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.glints.homeassignment.R
 import com.glints.homeassignment.databinding.ActivityLoginBinding
 import com.glints.homeassignment.helper.SessionLogin
 import com.glints.homeassignment.view.dashboard.DashboardActivity
 import com.glints.homeassignment.viewmodel.LoginViewModel
-import com.glints.homeassignment.viewmodel.RegisterViewModel
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -25,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
 
         sessionLogin = SessionLogin(this)
         loginViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
-            .get(LoginViewModel::class.java) //initialize viewmodel class
+            .get(LoginViewModel::class.java)
         binding.toolbar.setNavigationOnClickListener {
             exitApp()
         }
@@ -33,19 +31,19 @@ class LoginActivity : AppCompatActivity() {
             login()
         }
         binding.btnRegister.setOnClickListener {
-            startActivity(Intent(this,RegisterActivity::class.java))
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
     }
 
     private fun login() {
-        when{
-            binding.edtPw.text.isNullOrEmpty()->{
+        when {
+            binding.edtPw.text.isNullOrEmpty() -> {
                 binding.edtPw.error = getString(R.string.password_required)
             }
-            binding.edtUsername.text.isNullOrEmpty()->{
+            binding.edtUsername.text.isNullOrEmpty() -> {
                 binding.edtUsername.error = getString(R.string.username_required)
             }
-            else->{
+            else -> {
                 val alertLoading = AlertDialog.Builder(this)
                 val showLoading = alertLoading.apply {
                     setView(R.layout.layout_loading)
@@ -55,16 +53,15 @@ class LoginActivity : AppCompatActivity() {
                 loginViewModel.setLogin(
                     binding.edtUsername.text.toString(),
                     binding.edtPw.text.toString(),
-                    this
                 )
-                loginViewModel.getUserLogin().observe({lifecycle},{userData->
+                loginViewModel.getUserLogin().observe({ lifecycle }, { userData ->
                     showLoading.cancel()
                     sessionLogin.setUsername(userData.username)
                     sessionLogin.setAccountNo(userData.accountNo)
                     sessionLogin.setToken(userData.token)
-                    startActivity(Intent(this,DashboardActivity::class.java))
+                    startActivity(Intent(this, DashboardActivity::class.java))
                     finish()
-                    Toast.makeText(this,"Welcome ${userData.username}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Welcome ${userData.username}", Toast.LENGTH_SHORT).show()
                 })
             }
         }
@@ -79,10 +76,10 @@ class LoginActivity : AppCompatActivity() {
         val alert = dialogExit.apply {
             setMessage(getString(R.string.exit_message))
             setTitle(getString(R.string.exit_tittle))
-            setPositiveButton(getString(R.string.exit)){ _, _->
+            setPositiveButton(getString(R.string.exit)) { _, _ ->
                 finish()
             }
-            setNegativeButton(getString(R.string.cancel)){ _, _->
+            setNegativeButton(getString(R.string.cancel)) { _, _ ->
             }
             setCancelable(false)
         }

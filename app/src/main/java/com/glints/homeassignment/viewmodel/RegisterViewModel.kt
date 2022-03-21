@@ -1,8 +1,6 @@
 package com.glints.homeassignment.viewmodel
 
-import android.content.Context
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,21 +10,16 @@ import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
 import com.loopj.android.http.RequestParams
 import cz.msebera.android.httpclient.Header
-import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import org.json.JSONObject
 
-class RegisterViewModel:ViewModel() {
+class RegisterViewModel : ViewModel() {
     private val TAG = RegisterViewModel::class.java.simpleName
-    private val userLiveData= MutableLiveData<User>()
+    private val userLiveData = MutableLiveData<User>()
     private lateinit var errorMsg: String
 
     fun setRegister(
         username: String,
         password: String,
-        context: Context
     ) {
         val url = "${BuildConfig.URL_API}/register"
         val params = RequestParams()
@@ -85,4 +78,8 @@ class RegisterViewModel:ViewModel() {
     }
 
     fun getUserRegistered(): LiveData<User> = userLiveData
+
+    fun setDummyRegister(user: User) {
+        userLiveData.postValue(user)
+    }
 }

@@ -24,6 +24,7 @@ class SessionLogin(context: Context) {
         editor.putString(R.string.username.toString(), username)
         editor.apply()
     }
+
     fun setPassword(password: String) {
         editor.putString(R.string.password.toString(), password)
         editor.apply()
@@ -34,8 +35,8 @@ class SessionLogin(context: Context) {
         editor.apply()
     }
 
-    fun setToken(token:String) {
-        editor.putString(R.string.token.toString(),token)
+    fun setToken(token: String) {
+        editor.putString(R.string.token.toString(), token)
         editor.apply()
     }
 }

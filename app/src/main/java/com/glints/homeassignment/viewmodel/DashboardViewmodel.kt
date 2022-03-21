@@ -141,4 +141,12 @@ class DashboardViewmodel : ViewModel() {
 
     fun getHistoryTransactions(): LiveData<ArrayList<TransactionHistory>> =
         transactionHistoryLiveData
+
+    fun setDummyBalance(balance: Balance) {
+        balanceLiveData.postValue(balance)
+    }
+
+    fun setDummyHistoryTransaction(history: ArrayList<TransactionHistory>) {
+        transactionHistoryLiveData.postValue(history)
+    }
 }

@@ -58,4 +58,5 @@
     <string name="amount_transaction">Amount :</string>
     <string name="transaction_id">Transaction ID :</string>
     <string name="transfer_status">Transfer Status :</string>
+    <string name="logout_mssge">You will returned to login screen</string>
 </resources>

@@ -8,4 +8,4 @@ data class Payees(
     var id: String = "",
     var name: String = "",
     var accountNo: String = ""
-) : Parcelable {}
+) : Parcelable

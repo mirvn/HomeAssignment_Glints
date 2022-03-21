@@ -27,7 +27,7 @@ class DashboardActivity : AppCompatActivity() {
         setContentView(binding.root)
         showProgressBar(true)
         dashboardViewmodel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
-            .get(DashboardViewmodel::class.java) //initialize viewmodel class
+            .get(DashboardViewmodel::class.java)
         sessionLogin = SessionLogin(this)
         token = sessionLogin.sharedPreferences.getString(R.string.token.toString(), "").toString()
         val username = sessionLogin.sharedPreferences.getString(R.string.username.toString(), "")
@@ -36,6 +36,24 @@ class DashboardActivity : AppCompatActivity() {
         showTransactionHistory()
         binding.btnMakeTransfer.setOnClickListener {
             startActivity(Intent(this, TransferActivity::class.java))
+        }
+        binding.toolbar3.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                R.id.action_logout -> {
+                    val alert = AlertDialog.Builder(this)
+                    alert.apply {
+                        setTitle(getString(R.string.logout))
+                        setMessage(getString(R.string.logout_mssge))
+                        setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+                        setPositiveButton(getString(R.string.logout)) { _, _ ->
+                            sessionLogin.editor.clear().apply()//clear data session
+                            startActivity(Intent(this@DashboardActivity, LoginActivity::class.java))
+                            finish()
+                        }
+                    }.create().show()
+                }
+            }
+            true
         }
     }
 
@@ -93,12 +111,12 @@ class DashboardActivity : AppCompatActivity() {
         })
     }
 
-    private fun showProgressBar(show:Boolean){
-        if (show){
+    private fun showProgressBar(show: Boolean) {
+        if (show) {
             binding.progressBar3.visibility = View.VISIBLE
             binding.progressBar4.visibility = View.VISIBLE
             binding.progressBar5.visibility = View.VISIBLE
-        }else{
+        } else {
             binding.progressBar3.visibility = View.GONE
             binding.progressBar4.visibility = View.GONE
             binding.progressBar5.visibility = View.GONE

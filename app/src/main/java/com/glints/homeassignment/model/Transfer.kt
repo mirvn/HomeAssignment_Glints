@@ -11,4 +11,4 @@ data class Transfer(
     var amount: Int = 0,
     var description: String = "",
     var recipientAccount: String = ""
-) : Parcelable {}
+) : Parcelable

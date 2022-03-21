@@ -5,9 +5,8 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 class Balance(
-    var status:String="",
-    var message:String="",
-    var accountNo:String="",
-    var balance:String="",
-):Parcelable {
-}
+    var status: String = "",
+    var message: String = "",
+    var accountNo: String = "",
+    var balance: String = "",
+) : Parcelable
