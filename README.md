@@ -38,12 +38,11 @@ This is Project for Glints Assignment
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#usage-and-impelementation">Usage and Impelementation</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -80,7 +79,6 @@ Download APK File at
 
 
 
-<!-- USAGE EXAMPLES -->
 ## Features
 
 1. Register
@@ -91,25 +89,70 @@ Download APK File at
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
+## Usage and Impelementation
+
+Architecture : MVVM
+
+Library used in project:
+* Android Jetpack Library
+* Material Component
+* loopj - Android Asynchronous Http Client
+* Kotlin Coroutines
+* Mockito
+* Junit
+
+This application contain liveData and viewModel implementation from Jetpack Library using this dependency:
+```implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'```
+```implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1''```
+
+Using LiveData to get advantage of lifecycle-aware, meaning it respects the lifecycle of other app components, such as activities, fragments, or services. This awareness ensures LiveData only updates app component observers that are in an active lifecycle state.
+Here is some example:
+1. initialize variable in ViewModel.class
+```private val balanceLiveData = MutableLiveData<Balance>()```
+2. giving value using postValue() on background thread
+```balanceLiveData.postValue(balance)```
+3. observing given value using observer and get the data from it
+```
+dashboardViewmodel.getUserBalance().observe({ lifecycle }, { balanceData -> //begin observing
+            //check data
+            if (balanceData.status == getString(R.string.failed) &&
+                balanceData.message == getString(R.string.jwt_expired)
+            ) {
+                val alert = AlertDialog.Builder(this)
+                alert.apply {
+                    setTitle(getString(R.string.session_expired))
+                    setMessage(getString(R.string.sessionExpired_message))
+                    setIcon(R.drawable.ic_baseline_lock_clock_24)
+                    setPositiveButton(R.string.ok) { _, _ ->
+                        sessionLogin.editor.clear().apply() //clear data session
+                        startActivity(Intent(this@DashboardActivity, LoginActivity::class.java))
+                        finish()
+                    }
+                    setCancelable(false)
+                }.create().show()
+            } else {
+                showProgressBar(false)
+                binding.tvBalance.text = "SGD ${balanceData.balance}" // get data
+                binding.tvAccNoDashboard.text = balanceData.accountNo
+                binding.tvNameHolder.text =
+                    sessionLogin.sharedPreferences.getString(R.string.username.toString(), "")
+                        .toString()
+            }
+        })
+        
+```  
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 <!-- CONTACT -->
 ## Contact
 
-Muhammad Irvan 
+Muhammad Irvan
 [linkedin](https://linkedin.com/in/mirvn) 
+
 Email: mirvan2599@gmail.com
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
