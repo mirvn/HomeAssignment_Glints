@@ -14,10 +14,10 @@ This is Project for Glints Assignment
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/OCBC_Bank_logo.png/1200px-OCBC_Bank_logo.png" alt="Logo" width="900" height="220">
   </a>
 
-<h3 align="center">Home Assignment - GLints</h3>
+<h3 align="center">Home Assignment - OCBC Singapore Assessment</h3>
 
   <p align="center">
-    Application for test requirements in Glints
+    Application for test requirements in OCBC
     <br />
     <a href="https://github.com/mirvn/HomeAssignment_Glints"><strong>Explore the docs »</strong></a>
     <br />
