@@ -10,7 +10,7 @@ This is Project for Glints Assignment
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://www.ocbcnisp.com/">
+  <a href="https://www.ocbc.com/group/gateway">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/OCBC_Bank_logo.png/1200px-OCBC_Bank_logo.png" alt="Logo" width="900" height="220">
   </a>
 
