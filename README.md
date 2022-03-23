@@ -73,7 +73,7 @@ To get a local copy up and running, follow these simple steps.
 ### Installation
 
 Download APK File at 
-[Google-Drive](https://drive.google.com/file/d/17oKUmdmrsE4Sr3JB5XKU21OmOz96g-AU/view?usp=sharing)
+[here](https://drive.google.com/file/d/1J0h_Il5z6iHi9LPz2O9j_jcYmfBqhARv/view?usp=sharing)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
