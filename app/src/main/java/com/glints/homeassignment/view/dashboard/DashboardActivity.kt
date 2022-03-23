@@ -32,8 +32,6 @@ class DashboardActivity : AppCompatActivity() {
         token = sessionLogin.sharedPreferences.getString(R.string.token.toString(), "").toString()
         val username = sessionLogin.sharedPreferences.getString(R.string.username.toString(), "")
         binding.tvWelcome.text = "Hello, ${username.toString()}"
-        showUserBalance()
-        showTransactionHistory()
         binding.btnMakeTransfer.setOnClickListener {
             startActivity(Intent(this, TransferActivity::class.java))
         }
@@ -55,6 +53,12 @@ class DashboardActivity : AppCompatActivity() {
             }
             true
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        showUserBalance()
+        showTransactionHistory()
     }
 
     private fun showTransactionHistory() {
